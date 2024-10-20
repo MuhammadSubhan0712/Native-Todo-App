@@ -56,14 +56,14 @@ export default function Index() {
                 <View style={styles.todoItem}>
                   <Text style={styles.TodoItems}> {item} </Text>
                   <TouchableOpacity style={styles.DeleteBtn} onPress={() => deleteTodo(index)}>
-                    <Trash2 size={24} color="#ff5252" />
+                    <Trash2 size={24} color="#fff" />
                   </TouchableOpacity>
                   <TouchableOpacity style={styles.EditBtn} onPress={() => {
                     setIndex(index);
                     setUpduserInput(item);
                     setModalVisible(true);
                   }}>   
-                    <Pencil size={24} color="#ffa726" />
+                    <Pencil size={24} color="#fff" />
                   </TouchableOpacity>
                 </View>
               );
@@ -135,7 +135,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   AddBtn: {
-    backgroundColor: "#4CAF50",
+    backgroundColor:"#00008B",
     padding: 10,
     borderRadius: 8,
     margin: 10,
@@ -143,7 +143,7 @@ const styles = StyleSheet.create({
   },
   btnText: {
     color: "#fff",
-    fontSize: 18,
+    fontSize: 20,
   },
   todoContainer: {
     marginTop: 20,
@@ -167,12 +167,12 @@ const styles = StyleSheet.create({
   },
   EditBtn: {
     marginLeft: 10,
-    backgroundColor: "#ffa726",
+    backgroundColor: "#4CAF50",
     padding: 5,
     borderRadius: 5,
   },
   DeleteBtn: {
-    backgroundColor: "#ff5252",
+    backgroundColor: "#8B0000",
     padding: 5,
     borderRadius: 5,
   },
