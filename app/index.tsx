@@ -10,7 +10,7 @@ export default function Index() {
   const [index, setIndex] = useState(0);
 
   // To add Todo 
-  const addTodo = ()=> {
+  const Addtodo = ()=> {
     if (userinput.trim()) {
       setTodo([...Todo, userinput]);
       setuserInput('');
@@ -18,13 +18,13 @@ export default function Index() {
   }
 
   // To delete Todo 
-  const deleteTodo = (index:number) => {
+  const DeleteTodo = (index:number) => {
     Todo.splice(index, 1);
     setTodo([...Todo]);
   }
 
   // To update Todo 
-  const updateTodo = (index:number) => {
+  const UpdateTodo = (index:number) => {
     Todo.splice(index, 1, upduserInput);
     setTodo([...Todo]);
     setModalVisible(false);
@@ -43,7 +43,7 @@ export default function Index() {
         />
       </SafeAreaView>      
 
-      <TouchableOpacity style={styles.AddBtn} onPress={addTodo}>
+      <TouchableOpacity style={styles.AddBtn} onPress={Addtodo}>
         <Text style={styles.btnText}>Add Todo ➕</Text>
       </TouchableOpacity>
 
@@ -55,7 +55,7 @@ export default function Index() {
               return (
                 <View style={styles.todoItem}>
                   <Text style={styles.TodoItems}> {item} </Text>
-                  <TouchableOpacity style={styles.DeleteBtn} onPress={() => deleteTodo(index)}>
+                  <TouchableOpacity style={styles.DeleteBtn} onPress={() => DeleteTodo(index)}>
                     <Trash2 size={24} color="#fff" />
                   </TouchableOpacity>
                   <TouchableOpacity style={styles.EditBtn} onPress={() => {
@@ -92,7 +92,7 @@ export default function Index() {
               />
               <Pressable
                 style={styles.modalBtn}
-                onPress={() => updateTodo(index)}>
+                onPress={() => UpdateTodo(index)}>
                 <Text style={styles.btnText}>Update ✅</Text>
               </Pressable>
               <Pressable
