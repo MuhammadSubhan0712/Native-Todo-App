@@ -1,15 +1,20 @@
-import { Text, View } from "react-native";
+import { Text, View , StyleSheet } from "react-native";
 
 export default function Index() {
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Text>Edit app/index.tsx to edit this screen.</Text>
+    <View>
+      <Text style = {styles.h1}>Todo App</Text>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+h1:{
+marginTop:10,
+fontSize:30,
+padding:10,
+textAlign:"center",
+fontFamily:"Georgia"
+
+}
+})
