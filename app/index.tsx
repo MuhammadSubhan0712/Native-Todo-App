@@ -1,7 +1,33 @@
-import { Text, View , StyleSheet, SafeAreaView, TextInput } from "react-native";
+import { Pencil, Trash2 } from "lucide-react";
+import React, { useState } from "react";
+import { Text, View , StyleSheet, SafeAreaView, TextInput, FlatList, TouchableOpacity, LogBox } from "react-native";
 
 export default function Index() {
+  const [userinput , setuserInput] = useState('')
+  const [Todo , setTodo] = useState<string[]>(['']);
+
+
+
+  // To add Todo 
+  const addTodo = ()=> {
+   Todo.push(userinput);
+   setTodo([...Todo]);
+   setuserInput('');
+  }
+
+  // To delete Todo 
+  const deleteTodo = (index) => {
+  Todo.splice(1 , index)
+  setTodo([...Todo]);
+  console.log("Todo Deleted");
   
+  }
+
+  // To update Todo 
+
+  const updateTodo = () => {
+
+  }
   return (
     <View style={styles.container} >
     <View>
@@ -12,14 +38,39 @@ export default function Index() {
     <SafeAreaView>
       <TextInput
         style={styles.input}
-        // onChangeText={onChangeNumber}
-        // value={number}
+        onChangeText={setuserInput}
+        value={userinput}
         placeholder="Enter todo"  
       />
     </SafeAreaView>      
+
+    <TouchableOpacity style={styles.AddBtn} onPress={addTodo}>
+        <Text>Add Todo</Text>
+      </TouchableOpacity>
+    </View>
+
+    <View>
+    
+  {Todo.length > 0 ?      
+   <FlatList
+        data={Todo}
+        renderItem={({item , index}) => { 
+         return <View>
+          <Text style={styles.TodoItems}> {item}</Text>
+          <TouchableOpacity style={styles.DeleteBtn} onPress={deleteTodo(index)}>
+        <Text><Trash2 size={36} /></Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.EditBtn} onPress={updateTodo}>
+        <Text><Pencil size={36} /></Text>
+      </TouchableOpacity>
+          </View> 
+        }
+      }
+      /> : <Text>No todo Found</Text>
+    }
     </View>
     </View>
-   
+
   );
 }
 
@@ -43,5 +94,17 @@ input: {
   borderWidth: 1,
   padding: 10,
 },
+AddBtn:{
 
+},
+TodoItems:{
+
+},
+
+EditBtn:{
+
+},
+DeleteBtn:{
+  
+}
 })
