@@ -17,16 +17,15 @@ export default function Index() {
 
   // To delete Todo 
   const deleteTodo = (index) => {
-  Todo.splice(1 , index)
+  Todo.splice(index , 1)
   setTodo([...Todo]);
   console.log("Todo Deleted");
-  
   }
 
   // To update Todo 
 
-  const updateTodo = () => {
-
+  const updateTodo = (index) => {
+   Todo.splice(1 , )
   }
   return (
     <View style={styles.container} >
