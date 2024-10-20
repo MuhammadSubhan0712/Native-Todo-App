@@ -125,7 +125,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   input: {
-    height: 40,
+    height: 50,
     margin: 12,
     borderWidth: 1,
     padding: 10,
