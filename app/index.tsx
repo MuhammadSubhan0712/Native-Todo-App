@@ -2,6 +2,7 @@ import { Pencil, Trash2 } from "lucide-react";
 import React, { useState } from "react";
 import { Text, View , StyleSheet, SafeAreaView, TextInput, FlatList, TouchableOpacity, Modal, Pressable } from "react-native";
 
+
 export default function Index() {
   const [userinput , setuserInput] = useState('')
   const [Todo , setTodo] = useState<string[]>([]);
@@ -11,11 +12,10 @@ export default function Index() {
 
   // To add Todo 
   const Addtodo = ()=> {
-    if (userinput.trim()) {
+      Todo.unshift(userinput);
       setTodo([...Todo, userinput]);
       setuserInput('');
     }
-  }
 
   // To delete Todo 
   const DeleteTodo = (index:number) => {
